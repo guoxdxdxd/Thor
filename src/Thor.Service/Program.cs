@@ -287,11 +287,6 @@ try
     app.UseMiddleware<OpenTelemetryMiddlewares>();
     app.UseMiddleware<UnitOfWorkMiddleware>();
 
-    if (!Directory.Exists("/data"))
-    {
-        Directory.CreateDirectory("/data");
-    }
-
     app.MapModelManager();
 
     app.MapPost("/api/v1/authorize/token", async (AuthorizeService service, [FromBody] LoginInput input) =>
